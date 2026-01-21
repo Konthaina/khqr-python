@@ -111,7 +111,8 @@ class KHQRGenerator:
 
         qr = ""
         qr += format_tag("00", "01")  # Payload Format Indicator
-        qr += format_tag("01", "12")  # Point of Initiation Method (static)
+        poi = "12" if self.data.get("amount") else "11"
+        qr += format_tag("01", poi)  # Point of Initiation Method (static)
 
         # UPI Merchant Account (Tag 15) - Optional
         if self.data.get("upi_account_information"):
