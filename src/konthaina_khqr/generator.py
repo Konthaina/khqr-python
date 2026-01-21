@@ -52,7 +52,7 @@ class KHQRGenerator:
         self.data["account_information"] = (info or "")[:32]
         return self
 
-    def set_currency(self, currency: Union[str, Currency]) -> "KHQRGenerator":
+    def set_currency(self, currency: Union[str, Currency]) -> KHQRGenerator:
         if isinstance(currency, Currency):
             self.data["currency"] = currency.value
             return self
