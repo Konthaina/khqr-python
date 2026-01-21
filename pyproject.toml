@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "konthaina-khqr"
-version = "0.1.1"
+version = "0.1.2"
 description = "KHQR / EMVCo merchant-presented QR payload generator for Bakong (Cambodia), with CRC16 verification."
 readme = "README.md"
 requires-python = ">=3.9"
