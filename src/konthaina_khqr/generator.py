@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import time
 from dataclasses import dataclass
-from typing import Dict, Union
+from typing import Union
 
 from .crc16 import crc16_ccitt_false
 from .enums import Currency, MerchantType
@@ -27,7 +27,7 @@ class KHQRGenerator:
 
     def __init__(self, merchant_type: MerchantType = MerchantType.INDIVIDUAL):
         self.merchant_type = merchant_type
-        self.data: Dict[str, str] = {}
+        self.data: dict[str, str] = {}
 
     # -----------------------
     # Builder setters
