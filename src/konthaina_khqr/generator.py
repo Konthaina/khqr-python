@@ -52,11 +52,19 @@ class KHQRGenerator:
         self.data["account_information"] = (info or "")[:32]
         return self
 
-    def set_currency(self, currency: Union[str, Currency]) -> KHQRGenerator:
-        if isinstance(currency, str):
-            cur = currency.upper().strip()
-            currency = Currency.KHR if cur == "KHR" else Currency.USD
-        self.data["currency"] = currency.value
+    def set_currency(self, currency: Union[str, Currency]) -> "KHQRGenerator":
+        if isinstance(currency, Currency):
+            self.data["currency"] = currency.value
+            return self
+
+        cur = currency.strip().upper()
+        if cur in ("KHR", "116"):
+            self.data["currency"] = Currency.KHR.value
+        elif cur in ("USD", "840"):
+            self.data["currency"] = Currency.USD.value
+        else:
+            raise ValueError("currency must be 'KHR'/'USD' or '116'/'840'")
+
         return self
 
     def set_amount(self, amount: float) -> KHQRGenerator:
