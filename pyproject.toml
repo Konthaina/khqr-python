@@ -33,9 +33,9 @@ qrcode = ["qrcode[pil]>=7.0"]
 dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.11", "build>=1.2", "twine>=5.1"]
 
 [project.urls]
-Homepage = "https://github.com/yourname/konthaina-khqr"
-Repository = "https://github.com/yourname/konthaina-khqr"
-Issues = "https://github.com/yourname/konthaina-khqr/issues"
+Homepage = "https://github.com/Konthaina/khqr-python"
+Repository = "https://github.com/Konthaina/khqr-python"
+Issues = "https://github.com/Konthaina/khqr-python/issues"
 
 [project.scripts]
 khqr = "konthaina_khqr.cli:main"
