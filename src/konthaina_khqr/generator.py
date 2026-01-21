@@ -11,7 +11,7 @@ from .exceptions import KHQRValidationError
 from .tlv import format_tag
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class KHQRResult:
     qr: str
     timestamp: str
