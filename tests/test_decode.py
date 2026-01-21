@@ -1,4 +1,4 @@
-from konthaina_khqr import decode, KHQRGenerator
+from konthaina_khqr import KHQRGenerator, decode
 
 
 def test_decode_top_level_tags() -> None:

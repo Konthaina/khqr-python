@@ -1,7 +1,7 @@
+from .decode import decode
 from .enums import Currency, MerchantType
 from .generator import KHQRGenerator, KHQRResult
 from .verify import verify
-from .decode import decode
 
 __all__ = [
     "Currency",

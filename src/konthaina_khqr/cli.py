@@ -9,7 +9,9 @@ from .verify import verify
 
 
 def _parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(prog="khqr", description="Generate KHQR payload strings (Bakong / Cambodia)")
+    p = argparse.ArgumentParser(
+        prog="khqr", description="Generate KHQR payload strings (Bakong / Cambodia)"
+    )
     p.add_argument("--type", choices=["individual", "merchant"], default="individual")
     p.add_argument("--bakong", required=True, help="Bakong account ID / username")
     p.add_argument("--name", required=True, help="Merchant name")
@@ -21,7 +23,9 @@ def _parse_args() -> argparse.Namespace:
     p.add_argument("--bill", help="Bill number (optional)")
     p.add_argument("--mobile", help="Mobile number (optional)")
     p.add_argument("--png", help="Output PNG path (requires konthaina-khqr[qrcode])")
-    p.add_argument("--verify", action="store_true", help="Verify generated payload CRC and exit 0/1")
+    p.add_argument(
+        "--verify", action="store_true", help="Verify generated payload CRC and exit 0/1"
+    )
     return p.parse_args()
 
 

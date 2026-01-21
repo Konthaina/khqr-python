@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import time
 from dataclasses import dataclass
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from .crc16 import crc16_ccitt_false
 from .enums import Currency, MerchantType
@@ -32,74 +32,74 @@ class KHQRGenerator:
     # -----------------------
     # Builder setters
     # -----------------------
-    def set_bakong_account_id(self, account_id: str) -> "KHQRGenerator":
+    def set_bakong_account_id(self, account_id: str) -> KHQRGenerator:
         self.data["bakong_account_id"] = (account_id or "")[:32]
         return self
 
-    def set_merchant_name(self, name: str) -> "KHQRGenerator":
+    def set_merchant_name(self, name: str) -> KHQRGenerator:
         self.data["merchant_name"] = (name or "")[:25]
         return self
 
-    def set_merchant_id(self, merchant_id: str) -> "KHQRGenerator":
+    def set_merchant_id(self, merchant_id: str) -> KHQRGenerator:
         self.data["merchant_id"] = (merchant_id or "")[:32]
         return self
 
-    def set_acquiring_bank(self, bank: str) -> "KHQRGenerator":
+    def set_acquiring_bank(self, bank: str) -> KHQRGenerator:
         self.data["acquiring_bank"] = (bank or "")[:32]
         return self
 
-    def set_account_information(self, info: str) -> "KHQRGenerator":
+    def set_account_information(self, info: str) -> KHQRGenerator:
         self.data["account_information"] = (info or "")[:32]
         return self
 
-    def set_currency(self, currency: Union[str, Currency]) -> "KHQRGenerator":
+    def set_currency(self, currency: Union[str, Currency]) -> KHQRGenerator:
         if isinstance(currency, str):
             cur = currency.upper().strip()
             currency = Currency.KHR if cur == "KHR" else Currency.USD
         self.data["currency"] = currency.value
         return self
 
-    def set_amount(self, amount: float) -> "KHQRGenerator":
+    def set_amount(self, amount: float) -> KHQRGenerator:
         self.data["amount"] = f"{amount:.2f}"
         return self
 
-    def set_merchant_city(self, city: str) -> "KHQRGenerator":
+    def set_merchant_city(self, city: str) -> KHQRGenerator:
         self.data["merchant_city"] = (city or "")[:15]
         return self
 
-    def set_bill_number(self, bill_number: str) -> "KHQRGenerator":
+    def set_bill_number(self, bill_number: str) -> KHQRGenerator:
         self.data["bill_number"] = (bill_number or "")[:25]
         return self
 
-    def set_mobile_number(self, mobile: str) -> "KHQRGenerator":
+    def set_mobile_number(self, mobile: str) -> KHQRGenerator:
         self.data["mobile_number"] = (mobile or "")[:25]
         return self
 
-    def set_store_label(self, label: str) -> "KHQRGenerator":
+    def set_store_label(self, label: str) -> KHQRGenerator:
         self.data["store_label"] = (label or "")[:25]
         return self
 
-    def set_terminal_label(self, label: str) -> "KHQRGenerator":
+    def set_terminal_label(self, label: str) -> KHQRGenerator:
         self.data["terminal_label"] = (label or "")[:25]
         return self
 
-    def set_purpose_of_transaction(self, purpose: str) -> "KHQRGenerator":
+    def set_purpose_of_transaction(self, purpose: str) -> KHQRGenerator:
         self.data["purpose_of_transaction"] = (purpose or "")[:25]
         return self
 
-    def set_upi_account_information(self, upi: str) -> "KHQRGenerator":
+    def set_upi_account_information(self, upi: str) -> KHQRGenerator:
         self.data["upi_account_information"] = (upi or "")[:31]
         return self
 
-    def set_language_preference(self, lang: str) -> "KHQRGenerator":
+    def set_language_preference(self, lang: str) -> KHQRGenerator:
         self.data["language_preference"] = (lang or "")[:2]
         return self
 
-    def set_merchant_name_alternate(self, name: str) -> "KHQRGenerator":
+    def set_merchant_name_alternate(self, name: str) -> KHQRGenerator:
         self.data["merchant_name_alternate"] = (name or "")[:25]
         return self
 
-    def set_merchant_city_alternate(self, city: str) -> "KHQRGenerator":
+    def set_merchant_city_alternate(self, city: str) -> KHQRGenerator:
         self.data["merchant_city_alternate"] = (city or "")[:15]
         return self
 
@@ -188,4 +188,6 @@ class KHQRGenerator:
 
         if self.merchant_type == MerchantType.MERCHANT:
             if not self.data.get("merchant_id") or not self.data.get("acquiring_bank"):
-                raise KHQRValidationError("Merchant ID and Acquiring Bank are required for merchant type")
+                raise KHQRValidationError(
+                    "Merchant ID and Acquiring Bank are required for merchant type"
+                )

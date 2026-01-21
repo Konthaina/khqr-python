@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   build-and-publish:
+    environment: pypi
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,3 +28,4 @@ jobs:
         with:
           # Trusted Publishing: no username/password needed
           packages-dir: dist/
+    

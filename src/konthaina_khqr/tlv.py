@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Dict, Tuple
+from typing import Dict
 
 
 def format_tag(tag: str, value: str) -> str:
