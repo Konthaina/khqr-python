@@ -170,7 +170,10 @@ class KHQRGenerator:
 
         # Timestamp (Tag 99) - proprietary
         timestamp = str(int(time.time() * 1000))
-        qr += format_tag("99", format_tag("00", timestamp))
+
+        # Only include Tag 99 for dynamic (when amount exists)
+        if self.data.get("amount"):
+            qr += format_tag("99", format_tag("00", timestamp))
 
         # CRC (Tag 63)
         crc = crc16_ccitt_false(qr + "6304")
