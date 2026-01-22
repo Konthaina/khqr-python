@@ -1,3 +1,5 @@
+[English](README.md) | [ខ្មែរ](README_KM.md)
+
 # konthaina-khqr
 
 KHQR / EMVCo merchant-presented QR payload generator for **Bakong / Cambodia** (NBC KHQR spec v2.7-style TLV) with **CRC-16/CCITT-FALSE** verification.
@@ -15,6 +17,14 @@ Optional: generate QR images (PNG) using `qrcode`:
 ```bash
 pip install "konthaina-khqr[qrcode]"
 ```
+
+## Features
+- Static & Dynamic KHQR
+- Correct KHR (116) / USD (840)
+- Stable static QR (no timestamp)
+- CRC-16 verification
+- Decode / verify helpers
+- CLI + PNG QR support
 
 ## Quick start
 

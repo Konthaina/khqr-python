@@ -1,3 +1,5 @@
+[English](README.md) | [ខ្មែរ](README_KM.md)
+
 # konthaina-khqr (ខ្មែរ)
 
 បណ្ណាល័យ Python សម្រាប់បង្កើត **KHQR payload string** (EMVCo TLV) សម្រាប់ Bakong / Cambodia និងមាន **CRC16 (CRC-16/CCITT-FALSE)** សម្រាប់ Verify។
@@ -15,6 +17,14 @@ pip install konthaina-khqr
 ```bash
 pip install "konthaina-khqr[qrcode]"
 ```
+
+## លក្ខណៈពិសេស
+- Static & Dynamic KHQR
+- Correct KHR (116) / USD (840)
+- Stable static QR (no timestamp)
+- CRC-16 verification
+- Decode / verify helpers
+- CLI + PNG QR support
 
 ## ឧទាហរណ៍
 
