@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.7
+- Documentation update and improvements
+- Add English and Khmer README files
+- Improve usage examples for Static and Dynamic KHQR
+- Clarify currency handling (KHR / USD) and QR generation
+- Add link to CHANGELOG in README
+
 ## 0.1.6
 - Fix CI failure caused by Ruff lint rule (UP037)
 - Remove quoted return type annotations (Python 3.9+ compatible)
